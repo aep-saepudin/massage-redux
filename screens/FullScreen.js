@@ -103,7 +103,7 @@ class FullScreen extends React.Component {
   copyText = () => {
     const { kontak } = this.props;
     Clipboard.setString(kontak);
-    ToastAndroid.show('Teks tealh di salin !', ToastAndroid.SHORT);
+    ToastAndroid.show('Teks telah di salin !', ToastAndroid.SHORT);
   }
 
 
@@ -188,7 +188,7 @@ class FullScreen extends React.Component {
                             </Text>
                           </Body>
                           <Right>
-                            <Button onPress={this.copyText}>
+                            <Button transparent onPress={this.copyText}>
                               <MaterialIcons name="content-copy" size={24} />
                             </Button>
                           </Right>
@@ -196,8 +196,8 @@ class FullScreen extends React.Component {
                         <Separator bordered>
                           <Text>Info Layanan</Text>
                         </Separator>
-                        {layanan.map((text) => (
-                          <ListItem>
+                        {layanan.map((text, i) => (
+                          <ListItem key={i.toString()}>
                             <Text>{text}</Text>
                           </ListItem>
                         ))}
